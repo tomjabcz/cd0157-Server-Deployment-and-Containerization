@@ -3,12 +3,12 @@ kind: Deployment
 metadata:
   name: simple-flask-deployment
   labels:
-    app: simple-flask
+    app: flask_test
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: simple-flask
+      app: flask_test
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -17,12 +17,12 @@ spec:
   template:
     metadata:
       labels:
-        app: simple-flask
+        app: flask_test
     spec:
       containers:
       - name: simple-flask
         # image: IMAGE_TAG
-        image: sudkul/simple-flask
+        image: tomjab/flask_test
         securityContext:
           privileged: false
           readOnlyRootFilesystem: false
